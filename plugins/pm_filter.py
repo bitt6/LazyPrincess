@@ -1488,9 +1488,7 @@ async def auto_filter(client, msg, spoll=False):
     full_name = user.first_name + " " + user.last_name if user.last_name else user.first_name
     waiting_message = await message.reply_text(f"Setting up your request {full_name}...")
     await asyncio.sleep(1)
-    await waiting_message.delete()
-    serve_message = await message.reply_text(f"🥰")
-    fetching_message = await message.reply_text(f"Fetching details from server {full_name}...")
+    await waiting_message.delete() 
 
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
